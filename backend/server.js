@@ -1,13 +1,14 @@
 const express = require("express");
 const cors = require("cors");
+const messageRoutes = require("./routes/messageRoutes");
+const notesRoutes = require("./routes/notesRoutes");
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
-
-app.get("/api/message", (req, res) => {
-  res.json({ message: "Hello from backend API 🚀" });
-});
+app.use("/", messageRoutes);
+app.use("/api/notes", notesRoutes);
 
 app.listen(5000, () => {
   console.log("Backend running on http://127.0.0.1:5000");
