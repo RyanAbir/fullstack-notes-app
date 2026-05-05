@@ -2,13 +2,8 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
-const messageRoutes = require("./routes/messageRoutes");
-const {
-  getNotes,
-  createNote,
-  updateNote,
-  deleteNote,
-} = require("./controllers/notesController");
+
+const notesRoutes = require("./routes/notesRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -17,17 +12,14 @@ connectDB();
 
 app.use(cors());
 app.use(express.json());
+
 app.get("/", (req, res) => {
   res.send("Backend is running");
 });
-app.get("/api/notes", getNotes);
-app.post("/api/notes", createNote);
-app.put("/api/notes/:id", updateNote);
-app.delete("/api/notes/:id", deleteNote);
-app.get("/debug-version", (req, res) => {
-  res.json({ version: "notes-api-fixed-v1" });
-});
-app.use("/", messageRoutes);
+
+app.use("/api/notes", notesRoutes);
+
+// 404 fallback
 app.use((req, res) => {
   res.status(404).json({ message: "Route not found", path: req.path });
 });
