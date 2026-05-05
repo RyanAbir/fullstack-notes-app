@@ -20,6 +20,12 @@ NotesFlow is a full-stack CRUD notes application built with:
 - Frontend: [Live App](https://fullstack-notes-app-zeta.vercel.app/)
 - Backend: [API](https://notes-backend-jyre.onrender.com/)
 
+## Screenshots
+
+![Home](assets/home.png)
+![Create Note](assets/create.png)
+![Edit Note](assets/edit.png)
+
 ## Tech Stack
 
 - Frontend: React, Vite
