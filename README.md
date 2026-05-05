@@ -23,7 +23,9 @@ NotesFlow is a full-stack CRUD notes application built with:
 ## Screenshots
 
 ![Home](assets/home.png)
+
 ![Create Note](assets/create.png)
+
 ![Edit Note](assets/edit.png)
 
 ## Tech Stack
