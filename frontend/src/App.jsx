@@ -65,7 +65,7 @@ function App() {
       <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
         {notes.map((note) => (
           <li
-            key={note.id}
+            key={note._id}
             style={{
               display: "flex",
               alignItems: "center",
@@ -77,10 +77,10 @@ function App() {
           >
             <span>{note.text}</span>
             <div style={{ display: "flex", gap: 8 }}>
-              <button onClick={() => handleEditNote(note.id, note.text)}>
+              <button onClick={() => handleEditNote(note._id, note.text)}>
                 Edit
               </button>
-              <button onClick={() => handleDeleteNote(note.id)}>Delete</button>
+              <button onClick={() => handleDeleteNote(note._id)}>Delete</button>
             </div>
           </li>
         ))}
