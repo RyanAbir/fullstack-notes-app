@@ -20,11 +20,14 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Backend is running");
 });
-app.use("/", messageRoutes);
 app.get("/api/notes", getNotes);
 app.post("/api/notes", createNote);
 app.put("/api/notes/:id", updateNote);
 app.delete("/api/notes/:id", deleteNote);
+app.get("/debug-version", (req, res) => {
+  res.json({ version: "notes-api-fixed-v1" });
+});
+app.use("/", messageRoutes);
 app.use((req, res) => {
   res.status(404).json({ message: "Route not found", path: req.path });
 });
