@@ -6,6 +6,7 @@ const messageRoutes = require("./routes/messageRoutes");
 const notesRoutes = require("./routes/notesRoutes");
 
 const app = express();
+const PORT = process.env.PORT || 5000;
 
 connectDB();
 
@@ -14,6 +15,6 @@ app.use(express.json());
 app.use("/", messageRoutes);
 app.use("/api/notes", notesRoutes);
 
-app.listen(5000, () => {
-  console.log("Backend running on http://127.0.0.1:5000");
+app.listen(PORT, () => {
+  console.log(`Backend running on port ${PORT}`);
 });
